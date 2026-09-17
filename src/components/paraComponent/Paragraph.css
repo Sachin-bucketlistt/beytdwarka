@@ -1,0 +1,43 @@
+.para {
+  margin: 0;
+  font-family: var(--sans);
+  line-height: var(--leading-body);
+}
+
+.para--eyebrow {
+  font-size: var(--text-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.para--lead {
+  max-width: var(--measure-lead);
+  font-size: var(--text-lead);
+  font-weight: 400;
+}
+
+.para--body {
+  font-size: var(--text-body);
+}
+
+.para--sm {
+  font-size: var(--text-sm);
+}
+
+.para--default {
+  color: var(--text);
+}
+
+.para--muted {
+  color: var(--text-muted);
+}
+
+.para--on-media {
+  color: var(--color-100);
+}
+
+.para--eyebrow.para--on-media {
+  color: var(--color-200);
+}

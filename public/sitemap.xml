@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://sachin-bucketlistt.github.io/beytdwarka/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://sachin-bucketlistt.github.io/beytdwarka/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sachin-bucketlistt.github.io/beytdwarka/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sachin-bucketlistt.github.io/beytdwarka/" />
+    <image:image>
+      <image:loc>https://sachin-bucketlistt.github.io/beytdwarka/og-image.jpg</image:loc>
+      <image:title>Beyt Dwarka island, Gujarat</image:title>
+      <image:caption>Aerial view of Beyt Dwarka at sunset</image:caption>
+    </image:image>
+  </url>
+</urlset>

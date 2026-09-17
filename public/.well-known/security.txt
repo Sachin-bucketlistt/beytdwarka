@@ -1,0 +1,5 @@
+Contact: https://github.com/Sachin-bucketlistt/beytdwarka/security/advisories/new
+Expires: 2027-09-18T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://sachin-bucketlistt.github.io/beytdwarka/.well-known/security.txt
+Policy: https://github.com/Sachin-bucketlistt/beytdwarka/blob/main/SECURITY.md

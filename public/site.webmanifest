@@ -1,0 +1,23 @@
+{
+  "name": "Beyt Dwarka",
+  "short_name": "Beyt Dwarka",
+  "description": "Discover Beyt Dwarka (Bet Dwarka), the sacred island of Lord Krishna off the coast of Okha, Gujarat.",
+  "id": "/beytdwarka/",
+  "start_url": "/beytdwarka/",
+  "scope": "/beytdwarka/",
+  "display": "standalone",
+  "background_color": "#061821",
+  "theme_color": "#0e4d6c",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "orientation": "portrait-primary",
+  "categories": ["travel", "lifestyle"],
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

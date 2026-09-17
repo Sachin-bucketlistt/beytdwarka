@@ -1,0 +1,16 @@
+# Beyt Dwarka
+
+> A website about Beyt Dwarka (also spelled Bet Dwarka), a sacred island off Okha in Gujarat, India, associated with Lord Krishna.
+
+Beyt Dwarka is also known as Shankhodhar and, in the Mahabharata, as Antardvipa. The island is reached from Okha by ferry and by Sudarshan Setu, and is known for temples, beaches, and marine landscapes in Devbhoomi Dwarka.
+
+## Site
+
+- Home: https://sachin-bucketlistt.github.io/beytdwarka/
+- Source: https://github.com/Sachin-bucketlistt/beytdwarka
+- Sitemap: https://sachin-bucketlistt.github.io/beytdwarka/sitemap.xml
+
+## Optional
+
+- Gujarat Tourism: https://www.gujarattourism.com/saurashtra/devbhoomi-dwarka/bet-dwarka.html
+- Incredible India: https://www.incredibleindia.gov.in/en/gujarat/dwarka/beyt-dwarka

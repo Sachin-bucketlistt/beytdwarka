@@ -1,0 +1,14 @@
+/* TEAM */
+Developer: Sachin
+Site: https://github.com/Sachin-bucketlistt/beytdwarka
+
+/* THANKS */
+Place: Beyt Dwarka (Bet Dwarka), Devbhoomi Dwarka, Gujarat, India
+
+/* SITE */
+Last update: 2026/09/18
+Language: English
+Doctype: HTML5
+Standards: HTML5, CSS3, ES modules
+Components: React, Vite
+Software: Cursor

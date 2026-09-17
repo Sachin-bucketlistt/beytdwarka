@@ -1,0 +1,30 @@
+.rotating-word {
+  position: relative;
+  display: inline-grid;
+  justify-items: start;
+  vertical-align: baseline;
+}
+
+.rotating-word__sizer,
+.rotating-word__viewport {
+  grid-area: 1 / 1;
+}
+
+.rotating-word__sizer {
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.rotating-word__viewport {
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+}
+
+.rotating-word__item {
+  grid-area: 1 / 1;
+  display: block;
+  white-space: nowrap;
+  will-change: transform, opacity, filter;
+}
