@@ -22,4 +22,7 @@ function githubPagesSpaFallback() {
 export default defineConfig({
   base: site.base,
   plugins: [react(), githubPagesSpaFallback()],
+  optimizeDeps: {
+    exclude: ['maplibre-gl'],
+  },
 })

@@ -1,12 +1,14 @@
+import { ArrowUpRight } from 'lucide-react'
 import './Button.css'
 
 function Button({
   as,
   href,
   type = 'button',
-  variant = 'primary',
+  arrow = false,
   size = 'md',
   block = false,
+  tone = 'on-dark',
   className = '',
   children,
   ...props
@@ -14,8 +16,9 @@ function Button({
   const Tag = as ?? (href ? 'a' : 'button')
   const classes = [
     'btn',
-    `btn--${variant}`,
     `btn--${size}`,
+    `btn--${tone}`,
+    arrow ? 'btn--arrow' : '',
     block ? 'btn--block' : '',
     className,
   ]
@@ -30,6 +33,11 @@ function Button({
       {...props}
     >
       <span className="btn__label">{children}</span>
+      {arrow ? (
+        <span className="btn__arrow" aria-hidden="true">
+          <ArrowUpRight size={16} strokeWidth={1.75} />
+        </span>
+      ) : null}
     </Tag>
   )
 }

@@ -1,0 +1,52 @@
+.sliding-counter {
+  display: inline-flex;
+  font-size: 1em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: rgb(255 255 255 / 0.78);
+  text-shadow: none;
+  transition:
+    color 0.45s ease,
+    text-shadow 0.45s ease;
+}
+
+.sliding-counter.is-set {
+  color: #fff;
+  text-shadow: 0 0 18px rgb(244 228 193 / 0.42);
+}
+
+.sliding-counter__row {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.sliding-counter__window {
+  display: inline-block;
+  overflow: hidden;
+  height: 1em;
+  width: 0.68em;
+}
+
+.sliding-counter__reel {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.sliding-counter__digit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1em;
+  width: 0.68em;
+  line-height: 1;
+  font-weight: inherit;
+}
+
+.sliding-counter__mark {
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 0.05em;
+  line-height: 1;
+}

@@ -17,6 +17,45 @@
   --heading: 'Bricolage Grotesque', system-ui, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
+  --page-max: 1300px;
+  --page-gutter: 20px;
+  --page-pad-y: 96px;
+
+  --text-h1: clamp(40px, 5vw, 64px);
+  --text-h2: clamp(32px, 3.5vw, 44px);
+  --text-h3: clamp(20px, 2vw, 24px);
+  --text-h4: 18px;
+  --text-lead: clamp(16px, 1.15vw, 18px);
+  --text-body: 16px;
+  --text-sm: 14px;
+  --text-eyebrow: 11px;
+
+  --text-display: var(--text-h1);
+  --text-xl: var(--text-h2);
+  --text-lg: var(--text-h3);
+  --text-md: var(--text-h4);
+
+  --leading-h1: 0.96;
+  --leading-h2: 1.08;
+  --leading-h3: 1.2;
+  --leading-display: var(--leading-h1);
+  --leading-heading: 1.15;
+  --leading-body: 1.6;
+
+  --tracking-h1: -0.04em;
+  --tracking-h2: -0.03em;
+  --tracking-h3: -0.01em;
+  --tracking-display: var(--tracking-h1);
+  --tracking-heading: var(--tracking-h2);
+  --tracking-eyebrow: 0.22em;
+
+  --text-muted: #6d6a64;
+  --measure-lead: 36em;
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+
   font: 18px/145% var(--sans);
   font-optical-sizing: auto;
   letter-spacing: 0.18px;
@@ -30,6 +69,39 @@
 
   @media (max-width: 1024px) {
     font-size: 16px;
+    --page-gutter: 28px;
+    --page-pad-y: 72px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-gutter: 20px;
+    --page-pad-y: 56px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --page-max: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1400px) {
+  :root {
+    --page-max: min(80vw, 1840px);
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --page-gutter: 56px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --page-gutter: 64px;
   }
 }
 
@@ -64,35 +136,69 @@ body {
   font-family: var(--sans);
 }
 
+.container {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+.section {
+  padding-block: var(--page-pad-y);
+}
+
+.radius {
+  border-radius: var(--radius);
+}
+
+.radius-sm {
+  border-radius: var(--radius-sm);
+}
+
+.radius-lg {
+  border-radius: var(--radius-lg);
+}
+
 #root {
   width: 100%;
   min-height: 100svh;
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4 {
+  margin: 0;
   font-family: var(--heading);
-  font-weight: 500;
   color: var(--text-h);
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: var(--leading-h1);
+  letter-spacing: var(--tracking-h1);
 }
+
 h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+  font-size: var(--text-h2);
+  font-weight: 600;
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-h2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: var(--leading-h3);
+  letter-spacing: var(--tracking-h3);
+}
+
+h4 {
+  font-size: var(--text-h4);
+  font-weight: 600;
+  line-height: var(--leading-h3);
+  letter-spacing: var(--tracking-h3);
 }
 p {
   margin: 0;
