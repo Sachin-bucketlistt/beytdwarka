@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { ArrowUpRight, ChevronLeft, ChevronRight, X } from 'lucide-react'
+import Button from '../buttonComponent/Button.jsx'
 import './Gallery.css'
 
 const EASE = [0.22, 1, 0.36, 1]
@@ -12,7 +13,7 @@ const FRAMES = [
     src: 'https://beytdwarka.com/assets/img/Home/gallery/DSC03900-min_11zon.webp',
     title: 'Shore run',
     place: 'Padam Beach',
-    span: 'hero',
+    slot: 'shore',
     position: '50% 62%',
   },
   {
@@ -20,7 +21,7 @@ const FRAMES = [
     src: 'https://beytdwarka.com/assets/img/Home/gallery/camping11_11zon.webp',
     title: 'Night fire',
     place: 'Island camp',
-    span: 'tall',
+    slot: 'fire',
     position: '48% 42%',
   },
   {
@@ -28,7 +29,7 @@ const FRAMES = [
     src: 'https://beytdwarka.com/assets/img/Home/gallery/20231003_182210-min-min-min_11zon.webp',
     title: 'Last light',
     place: 'Arabian Sea',
-    span: 'pair',
+    slot: 'dusk',
     position: '50% 40%',
   },
   {
@@ -36,15 +37,15 @@ const FRAMES = [
     src: 'https://beytdwarka.com/assets/img/Home/gallery/IMG-20240313-WA0054-min-min-min_11zon.webp',
     title: 'Tide jump',
     place: 'Golden hour',
-    span: 'pair',
-    position: '50% 45%',
+    slot: 'jump',
+    position: '50% 42%',
   },
   {
     id: 'friends',
     src: 'https://beytdwarka.com/assets/img/Home/gallery/IMG_6206_7_11zon_11zon.webp',
     title: 'Five on the shore',
     place: 'Padam Beach',
-    span: 'pair',
+    slot: 'friends',
     position: '50% 48%',
   },
   {
@@ -52,7 +53,7 @@ const FRAMES = [
     src: 'https://beytdwarka.com/assets/img/Home/gallery/IMG_2511_4_11zon_11zon.webp',
     title: 'Looking out',
     place: 'Island edge',
-    span: 'portrait',
+    slot: 'hat',
     position: '50% 35%',
   },
   {
@@ -60,7 +61,7 @@ const FRAMES = [
     src: 'https://beytdwarka.com/assets/img/Home/gallery/IMG_2932_11zon.jpg',
     title: 'Island swing',
     place: 'Padam Beach',
-    span: 'portrait',
+    slot: 'swing',
     position: '50% 42%',
   },
   {
@@ -68,7 +69,7 @@ const FRAMES = [
     src: 'https://beytdwarka.com/assets/img/Home/gallery/IMG_2841_11zon.jpg',
     title: 'Harbour boat',
     place: 'Okha crossing',
-    span: 'portrait',
+    slot: 'boat',
     position: '50% 38%',
   },
   {
@@ -76,7 +77,7 @@ const FRAMES = [
     src: 'https://beytdwarka.com/assets/img/Home/gallery/20230201_170445_11zon.jpg',
     title: 'Dolphin hour',
     place: 'Gulf of Kutch',
-    span: 'wide',
+    slot: 'dolphin',
     position: '50% 50%',
   },
   {
@@ -84,19 +85,21 @@ const FRAMES = [
     src: 'https://beytdwarka.com/assets/img/Home/gallery/20221227_164737_11zon.jpg',
     title: 'Mud day',
     place: 'Sand therapy',
-    span: 'wide',
+    slot: 'mud',
     position: '50% 48%',
   },
 ]
 
+const NOTES = ['Shore light.', 'Night fire.', 'Quiet crossing.', 'Open water.']
+
 const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
 }
 
 const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.06, delayChildren: 0.04 } },
+  show: { transition: { staggerChildren: 0.05, delayChildren: 0.04 } },
 }
 
 function Gallery() {
@@ -113,52 +116,47 @@ function Gallery() {
 
   return (
     <section className="gallery section" id="gallery" aria-labelledby="gallery-title">
-      <motion.div className="gallery__wrap container" {...motionProps}>
-        <motion.header className="gallery__header" variants={fadeUp}>
-          <div>
-            <p className="gallery__kicker">
-              Frames
-              <span>{String(FRAMES.length).padStart(2, '0')} photographs</span>
-            </p>
-            <h2 className="gallery__title" id="gallery-title">
-              Island in <em>pictures</em>
-            </h2>
-          </div>
+      <motion.div className="gallery__board container" {...motionProps}>
+        <motion.div className="gallery__copy" variants={fadeUp}>
+          <p className="gallery__kicker">Memories</p>
+          <h2 className="gallery__title" id="gallery-title">
+            Experience the <em>Beauty & Adventure</em> of Beyt Dwarka
+          </h2>
           <p className="gallery__lead">
-            Guests, tides, night fire and a dolphin hour — tap a frame to open
-            the gallery and move through the set.
+            Guests, tides and night fire — tap a picture and walk the set.
           </p>
-        </motion.header>
-
-        <motion.div className="gallery__wall" variants={stagger}>
-          {FRAMES.map((frame, index) => (
-            <motion.button
-              key={frame.id}
-              type="button"
-              className={`gallery__frame gallery__frame--${frame.span}`}
-              variants={fadeUp}
-              onClick={() => setOpen(index)}
-              aria-label={`Open ${frame.title}, ${frame.place}`}
-            >
-              <span className="gallery__shot">
-                <img
-                  src={frame.src}
-                  alt=""
-                  loading={index < 3 ? 'eager' : 'lazy'}
-                  decoding="async"
-                  style={{ objectPosition: frame.position }}
-                />
-              </span>
-              <span className="gallery__no" aria-hidden="true">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <span className="gallery__meta">
-                <b>{frame.title}</b>
-                <em>{frame.place}</em>
-              </span>
-            </motion.button>
-          ))}
+          <Button type="button" arrow size="sm" tone="on-light" onClick={() => setOpen(0)}>
+            See the frames
+          </Button>
         </motion.div>
+
+        <motion.ul className="gallery__notes" variants={fadeUp}>
+          {NOTES.map((note) => (
+            <li key={note}>{note}</li>
+          ))}
+        </motion.ul>
+
+        {FRAMES.map((frame, index) => (
+          <motion.button
+            key={frame.id}
+            type="button"
+            className={`gallery__frame gallery__frame--${frame.slot}`}
+            variants={fadeUp}
+            onClick={() => setOpen(index)}
+            aria-label={`Open ${frame.title}, ${frame.place}`}
+          >
+            <img
+              src={frame.src}
+              alt=""
+              loading={index < 4 ? 'eager' : 'lazy'}
+              decoding="async"
+              style={{ objectPosition: frame.position }}
+            />
+            <span className="gallery__open" aria-hidden="true">
+              <ArrowUpRight size={16} strokeWidth={1.8} />
+            </span>
+          </motion.button>
+        ))}
       </motion.div>
 
       <Lightbox

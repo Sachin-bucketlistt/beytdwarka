@@ -1,5 +1,5 @@
 .about-beyt {
-  --about-bg: #f6f3ec;
+  --about-bg: #ffffff;
   --about-ink: #1c1c1c;
   --about-body: #5c5852;
   --about-muted: #8a857c;
@@ -7,12 +7,53 @@
   --about-line: rgb(28 28 28 / 0.1);
   --about-cream: #f4e4c1;
   --text-h: var(--about-ink);
+  position: relative;
+  z-index: 2;
+  overflow: visible;
   background: var(--about-bg);
   color: var(--about-ink);
   font-family: var(--sans);
 }
 
+.about-beyt.section {
+  padding-bottom: 72px;
+}
+
+.about-beyt__rest {
+  position: absolute;
+  right: -5%;
+  bottom: -92px;
+  z-index: 0;
+  width: min(56vw, 540px);
+  height: 220px;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image:
+    linear-gradient(180deg, transparent 0%, #000 18%, #000 70%, rgb(0 0 0 / 0.5) 88%, transparent 100%),
+    linear-gradient(90deg, transparent 0%, #000 22%, #000 90%, rgb(0 0 0 / 0.35) 100%);
+  -webkit-mask-composite: destination-in;
+  mask-image:
+    linear-gradient(180deg, transparent 0%, #000 18%, #000 70%, rgb(0 0 0 / 0.5) 88%, transparent 100%),
+    linear-gradient(90deg, transparent 0%, #000 22%, #000 90%, rgb(0 0 0 / 0.35) 100%);
+  mask-composite: intersect;
+}
+
+.about-beyt__rest img {
+  display: block;
+  width: 124%;
+  max-width: none;
+  height: auto;
+  margin-left: -4%;
+  mix-blend-mode: screen;
+  opacity: 0.82;
+  filter: contrast(1.1) saturate(0.96);
+  will-change: transform;
+  user-select: none;
+}
+
 .about-beyt__wrap {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -349,7 +390,14 @@
 
 @media (max-width: 767px) {
   .about-beyt.section {
-    padding-block: 40px 48px;
+    padding-block: 40px 56px;
+  }
+
+  .about-beyt__rest {
+    right: -12%;
+    bottom: -64px;
+    width: min(78vw, 360px);
+    height: 150px;
   }
 
   .about-beyt__wrap {
@@ -482,5 +530,9 @@
 
   .about-beyt__note.is-on {
     transform: none;
+  }
+
+  .about-beyt__rest img {
+    will-change: auto;
   }
 }

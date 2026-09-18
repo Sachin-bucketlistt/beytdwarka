@@ -30,7 +30,7 @@ const TRIPS = [
     name: 'Dolphin Safari',
     place: 'Gulf of Kutch',
     cue: 'Boat',
-    href: '#experiences',
+    href: '#dolphin',
     src: PHOTOS.harbour,
     position: '78% 70%',
     scene: '70% 82%',
